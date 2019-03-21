@@ -1,5 +1,6 @@
 import math
 import heapq
+import sys
 
 from pqueue_remove import PriorityQueue
 from grid import Grid, INT_MAX
@@ -197,11 +198,26 @@ class DStar:
 if __name__ == '__main__':
     import maze_gen
 
+    if len(sys.argv) != 2:
+        print("Usage: dstarlite.py [maze_num] \n The maze_num maps as follows. \n Small maze: 0 \n Large maze: 1 \n No path: 2")
+        sys.exit(1)
+
+    maze_num = int(sys.argv[1])
+
     # Use the maze generator class to create a set of obstacles for the robot.
     # There are three mazes:
-    # size, start, end, obstacles = maze_gen.small_maze() # This maze is a small, true maze
-    size, start, end, obstacles = maze_gen.large_maze() # This maze is a large, obstacle environment
-    # size, start, end, obstacles = maze_gen.impossible_maze() # This maze is a large, obstacle environment, but without a path from start to goal
+
+    size, start, end, obstacles = None, None, None, None
+
+    if maze_num == 0:
+        print("Running the small maze simulation")
+        size, start, end, obstacles = maze_gen.small_maze() # This maze is a small, true maze
+    elif maze_num == 1:
+        print("Running the large maze simulation")
+        size, start, end, obstacles = maze_gen.large_maze() # This maze is a large, obstacle environment
+    elif maze_num == 2:
+        print("Running the impossible maze simulation")
+        size, start, end, obstacles = maze_gen.impossible_maze() # This maze is a large, obstacle environment, but without a path from start to goal
 
     # Initialize the objects for the algorithm to work appropriately.
     goal = Point(end[0], end[1])
