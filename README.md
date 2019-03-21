@@ -1,9 +1,10 @@
-# DstarLite -- CS 133b Final Project
+# D* Lite -- CS 133b Final Project
+## Rahil Bathwal and Vignesh Varadarajan
 
-This implementation of dstarlite is designed to run on various generated mazes. Look at `dstarlite.py` to see instructions on changing the
-maze used. The robots visibility radius in simulation can also be changed in `grid.py`.
+This implementation of dstarlite is designed to run on various generated mazes. 
+The robot's visibility radius in simulation can also be changed in `grid.py`.
 
-    Usage: dstarlite.py [maze_num]
+    Usage: python3 dstarlite.py [maze_num]
     The maze_num maps as follows.
     Small maze: 0
     Large maze: 1
